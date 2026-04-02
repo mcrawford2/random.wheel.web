@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Wheel Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <div id="welcomeScreen" class="container welcome-screen">
+        <h1>🎡 Random Wheel Generator</h1>
+        <p>Create a custom wheel with your own options and spin it to get random results!</p>
+        <div class="button-group">
+            <button class="btn-primary" onclick="startApplication()">Start Creating</button>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div id="mainApp" class="hidden">
+        <div class="container">
+            <!-- Left Section: Options Input & Management -->
+            <div class="section">
+                <h2>Build Your Wheel</h2>
+                
+                <!-- Input Area -->
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="optionInput" 
+                        placeholder="Enter an option..."
+                        onkeypress="handleEnter(event)"
+                    >
+                    <button class="btn-primary" onclick="addOption()">Add</button>
+                </div>
+
+                <!-- Messages -->
+                <div id="message"></div>
+
+                <!-- Options List -->
+                <div class="options-container">
+                    <ul class="options-list" id="optionsList">
+                        <li class="empty-message">No options yet. Add some to get started!</li>
+                    </ul>
+                </div>
+
+                <!-- Stats -->
+                <div class="stats">
+                    <div class="stat-item">
+                        Options: <span class="stat-value" id="optionCount">0</span>
+                    </div>
+                    <div class="stat-item">
+                        Spins: <span class="stat-value" id="spinCount">0</span>/10
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="button-group">
+                    <button class="btn-secondary" onclick="resetOptions()">Reset Wheel</button>
+                    <button class="btn-secondary" onclick="backToWelcome()">Back to Menu</button>
+                </div>
+            </div>
+
+            <!-- Right Section: Wheel & Results -->
+            <div class="section">
+                <h2 style="text-align: center;">Spin Your Wheel</h2>
+                
+                <!-- Wheel Pointer -->
+                <div class="wheel-pointer">
+                    <div class="pointer"></div>
+                </div>
+
+                <!-- Canvas for Wheel -->
+                <canvas id="wheelCanvas" class="wheel-canvas"></canvas>
+
+                <!-- Result Section -->
+                <div id="resultSection" class="result-section">
+                    <div class="result-label">The wheel landed on:</div>
+                    <div class="result-value" id="resultValue"></div>
+                    <div class="spin-counter" id="spinCounterDisplay"></div>
+                </div>
+
+                <!-- Spin Button -->
+                <div class="button-group">
+                    <button 
+                        id="spinButton" 
+                        class="btn-success" 
+                        onclick="spinWheel()"
+                        style="width: 100%; padding: 15px; font-size: 18px;"
+                    >
+                        🎯 SPIN THE WHEEL
+                    </button>
+                </div>
+
+                <!-- Info Message -->
+                <div id="wheelInfo" class="message info" style="margin-top: 20px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
