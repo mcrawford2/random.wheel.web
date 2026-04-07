@@ -1,7 +1,7 @@
-const COLORS = [
-    '#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8',
-    '#F7DC6F', '#BB8FCE', '#85C1E2', '#F8B88B', '#ABEBC6',
-    '#F5B7B1', '#D7BDE2', '#A9DFBF', '#FAD7A0', '#D5F4E6'
+const COLORS = [        // colors for each segment of the wheel (10)
+    '#FF6B6B', '#45B7D1', '#ffa6ec', '#4eceb3',
+    '#F7DC6F', '#BB8FCE', '#9cfdff', '#85ffb8',
+    '#ffa856', '#D7BDE2'
 ];
 
 function createInitialState() {
@@ -41,6 +41,8 @@ function startApplication() {
     resizeCanvas();
     refreshUI();
 }
+
+//////////////////////////////
 
 function backToWelcome() {
     if (!confirm('Are you sure? You will lose your current wheel.')) {
