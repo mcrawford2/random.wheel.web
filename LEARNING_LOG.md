@@ -1,3 +1,5 @@
+## IRERATION 1:
+
 # What HTML structure did you choose? 
 The HTML structure is mostly non-semantic, because I wanted to use div containers. It has some semantic elements such as <h1> and <p>, but does not use <header> or <main>. The first parts of my HTML are for the welcome screen and following main application view. Because my original python script had a welcoming introduction before starting a wheel, it made sense for this application to do the same. The welcome screen is simple, and only contains a head, paragraph, and button that leads to the main screen. 
 
@@ -10,3 +12,12 @@ The first interaction beneath these initial sections of code is the function sta
 AI helped generate my code, and to make it work with my HTML I had to understand that certain HTML elements, like addOption() and spinWheel() would rely on Javascript elements, such as COLORS and createInitialState(). 
 
 It also helped with my first interaction, startApplication(), for which I had to understand is only possible through the creation and use of the HTML button and onclick ability. 
+
+
+## ITERATION 2:
+# What was the hardest interaction to implement? 
+difficult interactions: 
+
+# What JavaScript concepts did you use (variables, functions, arrays, conditionals, DOM methods)? 
+
+# What bugs did you find and fix?
