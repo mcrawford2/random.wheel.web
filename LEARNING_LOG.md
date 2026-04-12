@@ -1,4 +1,4 @@
-## IRERATION 1:
+## ITERATION 1:
 
 # What HTML structure did you choose? 
 The HTML structure is mostly non-semantic, because I wanted to use div containers. It has some semantic elements such as <h1> and <p>, but does not use <header> or <main>. The first parts of my HTML are for the welcome screen and following main application view. Because my original python script had a welcoming introduction before starting a wheel, it made sense for this application to do the same. The welcome screen is simple, and only contains a head, paragraph, and button that leads to the main screen. 
@@ -15,9 +15,28 @@ It also helped with my first interaction, startApplication(), for which I had to
 
 
 ## ITERATION 2:
+
 # What was the hardest interaction to implement? 
-difficult interactions: 
+There are three interactions I consider to have been the most difficult to implement: 
+1. function drawWheel(). This function helps create the wheel and all option slices. 'ctx.' was new to me, but be used to set drawing styles, draw shapes and text,  or save/restore/clear drawing states. Having so many 'ctx.' directions made this section of code longer than most other functions in the file. 
+2. function animate(). This function allows the wheel to spin smoothly. It tracks the amount of time it spins for and slows the spinning before stopping. It also finds angles while rotating, and when it finishes spinning it shows the winning option, marks the wheel as not spinning, allows the spin button to be pressed again, and refreshes the wheel display. This function was difficult to implement because I did not understand the meaning of 'progress'. 'progress' helped decide how far the wheel should rotate and when to stop the animation.
+3. function updateOptionsList(). This function rebuilds te list of options whenever options change, so the UI stays in sync with the data. I did not initially understand the 'list.innerHTML' or '.map()", which were written by AI. The 'list.innerHTML' helps set the HTML content in the list, and '.map()' is an array method that creates new arrays, in this case HTML strings, from list entries. I was also confused because this function includes HTML in JS script, but I now understand this is because the visual HTML effects of the page are directly affected by JS data, and keeping it in the JS file allows the page to update more dynamically. 
 
 # What JavaScript concepts did you use (variables, functions, arrays, conditionals, DOM methods)? 
+- Variables: to store wheel state, options, rotation, and spin count.
+- Functions: to organize actions like adding options, drawing the wheel, spinning, and updating the screen.
+- Arrays: to keep colors and option items.
+- Conditionals: to check things like empty input, max spins, and whether spinning is allowed.
+- DOM methods: to get page elements, change text/HTML, show/hide sections, and handle button clicks/events.
 
 # What bugs did you find and fix?
+Input validation bugs were avoided by disallowing empty entries and the reserved word “done.” Spin-state bugs were avoided by preventing spins when the wheel is already spinning, has no options, or reached max spins. Similarly, repeated-click issues were stopped by disabling the spin button during animation and re-enabling it again after Finally, display issues were prevented by resizing and redrawing the wheel on page load and window resize.
+
+
+## ITERATION 3:
+
+# What feedback did you get?
+
+# What edge cases did you handle?
+
+# What would you add with more time?

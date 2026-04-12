@@ -16,7 +16,7 @@ function createInitialState() {
 
 let wheelState = createInitialState();
 
-function $(id) {
+function $(id) {    //makes DOM look ups shorter throughout the file
     return document.getElementById(id);
 }
 
@@ -111,7 +111,7 @@ function drawWheel() {
     const centerY = canvas.height / 2;
     const radius = Math.min(centerX, centerY) - 10;
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);       //API method that erases pixels in a rectangular area
 
     if (wheelState.options.length === 0) {
         ctx.fillStyle = '#f0f0f0';
@@ -131,7 +131,7 @@ function drawWheel() {
         return;
     }
 
-    const sliceAngle = (2 * Math.PI) / wheelState.options.length;
+    const sliceAngle = (2 * Math.PI) / wheelState.options.length;   //to calculate the angle of each section of the wheel
     ctx.save();
     ctx.translate(centerX, centerY);
     ctx.rotate((wheelState.rotation * Math.PI) / 180);
@@ -200,13 +200,13 @@ function spinWheel() {
     }
 
     const spinButton = $('spinButton');
-    spinButton.disabled = true;
+    spinButton.disabled = true;     //button can't be pressed if already spinning
     wheelState.isSpinning = true;
 
     const segmentAngle = 360 / wheelState.options.length;
     const finalDegrees =
         wheelState.rotation +
-        (360 * 5) +
+        (360 * 5) +     //5 rotations for visual effect
         (Math.floor(Math.random() * wheelState.options.length) * segmentAngle) +
         (Math.random() * segmentAngle);
 
@@ -220,9 +220,10 @@ function animateSpin(targetRotation, spinButton) {
     const duration = 4000;
 
     // Advances each animation frame until the spin completes.
+    //stops on option, displays option, marks wheel as not spinning, enables spin button, refreshes UI, might send message
     function animate() {
-        const progress = Math.min((Date.now() - startTime) / duration, 1);
-        const easeProgress = 1 - Math.pow(1 - progress, 3);
+        const progress = Math.min((Date.now() - startTime) / duration, 1);      //spin time
+        const easeProgress = 1 - Math.pow(1 - progress, 3);     //slows spinning before wheel stops
         wheelState.rotation = startRotation + (targetRotation - startRotation) * easeProgress;
         drawWheel();
 
@@ -276,8 +277,8 @@ function updateOptionsList() {
         return;
     }
 
-    list.innerHTML = wheelState.options
-        .map((option, index) => `
+    list.innerHTML = wheelState.options     //sets the inner HTML of the options list by mapping each option to a list item with a remove button, and joining them into a single string
+        .map((option, index) => `       //creates a list item for each option, displaying the option text and a remove button that calls removeOption() with the index of the option when clicked
             <li class="option-item">
                 <div style="display: flex; align-items: center; flex: 1;">
                     <div class="option-number">${index + 1}</div>
