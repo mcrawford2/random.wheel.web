@@ -277,19 +277,43 @@ function updateOptionsList() {
         return;
     }
 
-    list.innerHTML = wheelState.options     //sets the inner HTML of the options list by mapping each option to a list item with a remove button, and joining them into a single string
-        .map((option, index) => `       //creates a list item for each option, displaying the option text and a remove button that calls removeOption() with the index of the option when clicked
-            <li class="option-item">
-                <div style="display: flex; align-items: center; flex: 1;">
-                    <div class="option-number">${index + 1}</div>
-                    <div class="option-text">${option}</div>
-                </div>
-                <div class="option-actions">
-                    <button class="btn-remove" onclick="removeOption(${index})">Remove</button>
-                </div>
-            </li>
-        `)
-        .join('');
+    // Build the list items dynamically so each remove button can bind its own handler.
+    list.innerHTML = '';
+
+    wheelState.options.forEach((option, index) => {
+        const listItem = document.createElement('li');
+        listItem.className = 'option-item';
+
+        const optionContent = document.createElement('div');
+        optionContent.style.display = 'flex';
+        optionContent.style.alignItems = 'center';
+        optionContent.style.flex = '1';
+
+        const optionNumber = document.createElement('div');
+        optionNumber.className = 'option-number';
+        optionNumber.textContent = `${index + 1}`;
+
+        const optionText = document.createElement('div');
+        optionText.className = 'option-text';
+        optionText.textContent = option;
+
+        optionContent.appendChild(optionNumber);
+        optionContent.appendChild(optionText);
+
+        const optionActions = document.createElement('div');
+        optionActions.className = 'option-actions';
+
+        const removeButton = document.createElement('button');
+        removeButton.className = 'btn-remove';
+        removeButton.type = 'button';
+        removeButton.textContent = 'Remove';
+        removeButton.addEventListener('click', () => removeOption(index));
+
+        optionActions.appendChild(removeButton);
+        listItem.appendChild(optionContent);
+        listItem.appendChild(optionActions);
+        list.appendChild(listItem);
+    });
 }
 
 // Updates numeric stats like option and spin counts.
@@ -340,3 +364,10 @@ window.addEventListener('load', () => {
     resizeCanvas();
     drawWheel();
 });
+
+$('startButton').addEventListener('click', startApplication);
+$('addButton').addEventListener('click', addOption);
+$('resetButton').addEventListener('click', resetOptions);
+$('backButton').addEventListener('click', backToWelcome);
+$('spinButton').addEventListener('click', spinWheel);
+$('optionInput').addEventListener('keypress', handleEnter);

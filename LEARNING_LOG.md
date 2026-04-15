@@ -20,7 +20,7 @@ It also helped with my first interaction, startApplication(), for which I had to
 There are three interactions I consider to have been the most difficult to implement: 
 1. function drawWheel(). This function helps create the wheel and all option slices. 'ctx.' was new to me, but be used to set drawing styles, draw shapes and text,  or save/restore/clear drawing states. Having so many 'ctx.' directions made this section of code longer than most other functions in the file. 
 2. function animate(). This function allows the wheel to spin smoothly. It tracks the amount of time it spins for and slows the spinning before stopping. It also finds angles while rotating, and when it finishes spinning it shows the winning option, marks the wheel as not spinning, allows the spin button to be pressed again, and refreshes the wheel display. This function was difficult to implement because I did not understand the meaning of 'progress'. 'progress' helped decide how far the wheel should rotate and when to stop the animation.
-3. function updateOptionsList(). This function rebuilds te list of options whenever options change, so the UI stays in sync with the data. I did not initially understand the 'list.innerHTML' or '.map()", which were written by AI. The 'list.innerHTML' helps set the HTML content in the list, and '.map()' is an array method that creates new arrays, in this case HTML strings, from list entries. I was also confused because this function includes HTML in JS script, but I now understand this is because the visual HTML effects of the page are directly affected by JS data, and keeping it in the JS file allows the page to update more dynamically. 
+3. function updateOptionsList(). This function rebuilds the list of options whenever options change, so the UI stays in sync with the data. I did not initially understand the 'list.innerHTML', which helps set the HTML content in the list. This part of the code, which was originally generated with AI, initally was structure with HTML within JS script. This allowed the visual HTML effects of the page to be directly affected by JS data, and used on click instead of addEventListener. I changed this from the original AI code because using addEventListener makes the code more difficult to break, and following the DOM through createElement rather than HTML script is cleaner and easier to read.
 
 # What JavaScript concepts did you use (variables, functions, arrays, conditionals, DOM methods)? 
 - Variables: to store wheel state, options, rotation, and spin count.
@@ -38,5 +38,8 @@ Input validation bugs were avoided by disallowing empty entries and the reserved
 # What feedback did you get?
 
 # What edge cases did you handle?
+- rapid clicking
+- empty text
+
 
 # What would you add with more time?

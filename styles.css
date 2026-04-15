@@ -219,11 +219,6 @@ input[type="text"]:focus {
     font-style: italic;
 }
 
-/* Wheel Section */
-.wheel-section {
-    text-align: center;
-}
-
 .wheel-canvas {
     width: 100%;
     max-width: 400px;
@@ -238,23 +233,6 @@ input[type="text"]:focus {
 
 .wheel-canvas:hover:not(.spinning) {
     transform: scale(1.02);
-}
-
-.wheel-pointer {
-    position: relative;
-    width: 100%;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.pointer {
-    display: inline-block;
-    width: 0;
-    height: 0;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    border-top: 30px solid #764ba2;
-    margin-bottom: 10px;
 }
 
 /* Result Section */
