@@ -1,0 +1,11 @@
+# What the tool does
+The Random Wheel Generator lets you build a customizable spinning wheel and use it to pick a random result from a set of options that you define. After clicking "Start Creating" on the welcome screen, you can type in any options you want. This could be names, choices, or tasks, and they get added to the wheel using the Add button or the Enter key. Each option appears as a colored slice on a visual wheel drawn on the page. You can remove individual options at any time, and the sidebar tracks how many options are on the wheel along with how many spins you've used out of a maximum of 10. A "Reset Wheel" button clears everything and starts fresh, while "Back to Menu" returns you to the welcome screen.
+
+# How to use it
+After clicking "Start Creating", start by entering your options in the text input and building out your wheel. Once you're happy with the selections, click the "Spin the Wheel" button to trigger an animated spin. The wheel rotates and gradually slows to a stop while randomly selecting a segment. The result is then displayed below the wheel, showing which option was selected and which spin number it was. You can keep spinning up to 10 times before the wheel locks and prompts you to reset. AT any moment, you can also add more options or remove previous options and continue spinning. Throughout the process, brief status messages appear to confirm actions like adding or removing options, or to alert you if something goes wrong, such as trying to spin with no options added.
+
+# Link to live site
+- https://mcrawford2.github.io/random.wheel.web/ 
+
+# What you learned
+My biggest learning moment was when I switched from embedded HTML text in the JS file to a forEach loop with addEventListener. I had previously thought of the list as just text to display after it was inputted, but using forEach with addEventListener, made me see each option as an object with its own behavior. This project also gave me practice with DOM manipulation, which made sense conceptually but was interesting to see methods like createElement and appendChild as working, dynamic parts of the app. 

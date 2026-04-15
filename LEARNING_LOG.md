@@ -36,10 +36,10 @@ Input validation bugs were avoided by disallowing empty entries and the reserved
 ## ITERATION 3:
 
 # What feedback did you get?
+I got positive feedback from two classmates. They stated that the app was pretty stright forward, and that it was easy to understand how to use it and in what situations they would want to use it. They also liked the colors of the wheel, the visual spinning effect, and the option to remove items or leave them in the wheel.
 
 # What edge cases did you handle?
-- rapid clicking
-- empty text
-
+One edge case that was tested is rapid clicking of all buttons; they do not break when spammed and only accomplish their one task. Another case is empty text being added as an item. This results in the message "Input cannot be empty. Please enter something." Additionally, the "Spin the Wheel" button can't be clicked if the wheel is already spinning, to prevent user and program confusion, and if the wheel reaches it's max of 10 spins, "Maximum spins (10) reached! Reset to spin again." appears.
 
 # What would you add with more time?
+With more time, I would want to make the overall color theme more cohesive and change the visual layout of the page. I would also experiment with adding more animations or sound effects to the page for a more engaging app experience. I would also enhance functionality by allowing users to customize the wheel further. They would be able to assign colors to options, and have the ability to save and reload wheels. 
